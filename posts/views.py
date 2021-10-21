@@ -27,7 +27,7 @@ class PostDetailView(View):
 
 class PostListView(View):
     def get(self, request):
-        posts = Post.objects.select_related('author').order_by('-updated_at')
+        posts = Post.objects.select_related('author').order_by('-created_at')
         OFFSET = request.GET.get('page', 1)
         LIMIT = 20
 
