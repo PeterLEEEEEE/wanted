@@ -2,6 +2,7 @@ import re
 import jwt
 import json
 import bcrypt
+import logging
 from json.decoder import JSONDecodeError
 from django.http  import JsonResponse
 from django.views import View
@@ -9,6 +10,8 @@ from users.models import User
 from my_settings import SECRET_KEY, ALGORITHM
 
 
+
+logger = logging.getLogger('django')
 class SignUpView(View):
     def post(self, request):
         try:
